@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { artigos } from "@/app/artigos/data"
+import { getArtigo, getArtigos } from "@/app/artigos/data"
 
 export const instant = false
 
@@ -12,6 +12,8 @@ type Props = {
 }
 
 export const generateStaticParams = async () => {
+    const artigos = await getArtigos()
+
     return artigos.map((artigo) => ({
         slug: artigo.slug,
     }))
@@ -19,7 +21,7 @@ export const generateStaticParams = async () => {
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
     const { slug } = await params
-    const detalhes = artigos.find((artigo) => artigo.slug === slug)
+    const detalhes = await getArtigo(slug)
 
     if (!detalhes) {
         return {}
@@ -36,7 +38,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 const ArtigoPage = async ({ params }: Props) => {
     const { slug } = await params
 
-    const detalhes = artigos.find((artigo) => artigo.slug === slug)
+    const detalhes = await getArtigo(slug)
 
     if (!detalhes) {
         return notFound()

@@ -1,17 +1,15 @@
 import Link from "next/link"
-import { artigos } from "@/app/artigos/data"
+import { getArtigos } from "@/app/artigos/data"
 
-const ArtigosPage = () => {
-    const maisRecentesPrimeiro = [...artigos].sort((a, b) =>
-        b.publicadoEm.localeCompare(a.publicadoEm)
-    )
+const ArtigosPage = async () => {
+    const artigos = await getArtigos()
 
     return (
         <main className="mx-auto w-full max-w-2xl flex-1 px-6 py-16">
             <h1 className="text-3xl font-bold tracking-tight">Artigos</h1>
 
             <ul className="mt-8 flex flex-col gap-4">
-                {maisRecentesPrimeiro.map((artigo) => (
+                {artigos.map((artigo) => (
                     <li key={artigo.slug}>
                         <Link
                             href={`/artigos/${artigo.slug}`}
