@@ -53,9 +53,6 @@ jobs:
       - name: Rodar lint
         run: npm run lint
 
-      - name: Formatar
-        run: npm run format
-
       - name: Verificar formatação
         run: npm run format:check
 
