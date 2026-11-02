@@ -27,6 +27,7 @@
     "prettier": "^3.9.10",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vercel": "^65.9.0",
     "vitest": "^3.2.7"
   }
 }
