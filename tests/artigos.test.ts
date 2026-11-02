@@ -21,4 +21,4 @@ test("exibe o artigo com o link correto", async () => {
 
   expect(html).toContain("Primeiro artigo");
   expect(html).toContain('href="/artigos/primeiro-artigo"');
-})
+});
