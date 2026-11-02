@@ -4,7 +4,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "src/**"
+      - "app/**"
+      - "tests/**"
       - ".github/workflows/**"
 
   pull_request:
