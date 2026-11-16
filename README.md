@@ -2,9 +2,9 @@
 
 ## Como funciona a pipeline
 
-O projeto usa GitHub Actions para verificar o código e publicar uma versão de preview na Vercel.
+O projeto utiliza GitHub Actions para verificar o código e publicar uma versão de preview na Vercel.
 
-A pipeline roda automaticamente quando há um push ou um pull request para a branch `main` ou `.github/workflow`. Também pode ser iniciada manualmente pela aba Actions.
+A pipeline é executada automaticamente quando ocorre um push na branch main ou quando um pull request é aberto ou atualizado tendo a main como destino. Também pode ser iniciada manualmente pela aba Actions.
 
 ### 1. Build
 
@@ -22,4 +22,18 @@ Se alguma verificação falhar, o deploy não acontece.
 
 ### 3. Deploy
 
-Quando um push na `main` passa por todas as verificações, a pipeline envia uma versão de **preview** para a Vercel.
+Quando um push na branch main passa por todas as verificações, a pipeline envia uma versão de preview para a Vercel.
+
+A execução dos workflows e seus resultados podem ser acompanhados na aba Actions do repositório no GitHub.
+
+Executando localmente
+
+Para instalar as dependências:
+
+``npm ci``
+
+Para iniciar o servidor de desenvolvimento:
+
+``npm run dev``
+
+O projeto estará disponível em http://localhost:3000.
