@@ -3,10 +3,6 @@ name: CI/CD Js
 on:
   push:
     branches: ["main"]
-    paths:
-      - "app/**"
-      - "tests/**"
-      - ".github/workflows/**"
 
   pull_request:
     branches: ["main"]
